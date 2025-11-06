@@ -6,7 +6,13 @@ This project is a Streamlit-based chatbot that uses GPT-4 to convert natural lan
 
 1. Clone the repository
 2. Install dependencies using `pip install -r requirements.txt`
-3. Add your OpenAI API key to a `.env` file
+3. Copy `.env.example` to `.env` and add your OpenAI API key (do not commit `.env`):
+
+```bash
+cp .env.example .env
+# edit .env and set OPENAI_API_KEY
+```
+
 4. Run the app using `bash start.sh`
 
 ## Project Structure
@@ -16,3 +22,6 @@ This project is a Streamlit-based chatbot that uses GPT-4 to convert natural lan
 - `tests/`: Pytest test suite
 - `.env`: Environment variables
 - `start.sh`: Startup script
+
+Testing notes:
+- The test suite is configured to mock external network calls to OpenAI and the Getty SPARQL endpoint so tests run without credentials or network access. If you prefer to run integration tests against the real services, update the tests and provide a live `OPENAI_API_KEY` in your `.env`.
